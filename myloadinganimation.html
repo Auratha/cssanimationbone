@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading Animation</title>
+</head>
+<style type="text/css">
+
+    body {
+        font-family: sans-serif;
+        background-color: #272727;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin: 0;
+        overflow: hidden;
+    }
+
+    div{
+        width:300px;
+        height: 300px;
+        /*background-color: red;*/
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+    }
+
+    h1 {
+        color: transparent;
+        font-size: 25px;
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+
+
+        position: absolute;
+
+        -webkit-text-stroke: 2px #262626;
+    }
+
+    h1::before {
+        content: 'loading....';
+        width: 100%;
+        color: #03a9f4;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        overflow: hidden;
+
+        animation-name:filltextcolor;
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+    }
+
+    @keyframes filltextcolor {
+        0%{
+            width: 0%;
+
+        }
+
+        100%{
+            width: 100%;
+
+        }
+    }
+
+    .circle1{
+        width:200px;
+        height: 200px;
+
+        border-radius: 50%;
+        border-left:4px solid #03a9f4;
+        border-right:4px solid #03a9f4;
+
+        animation-name: circle1;
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+
+        position: absolute;
+    }
+
+    @keyframes circle1 {
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(360deg);
+        }
+    }
+
+    .circle2{
+        width:200px;
+        height: 200px;
+        border-top: 4px solid #03a9f4;
+        border-bottom: 4px solid #03a9f4;
+        opacity: 0;
+        border-radius: 50%;
+
+        position: absolute;
+
+        z-index: -2;
+
+        animation: circle2first 5s linear infinite;
+
+    }
+
+    .circle2::before{
+        width: 150px;
+        height: 150px;
+        content: "";
+        opacity: 0;
+        border-left: 4px solid #03a9f4;
+        border-right: 4px solid #03a9f4;
+        border-radius: 50%;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        z-index: -1;
+
+        transform: translate(-50%,-50%);
+
+        animation: circle2second 5s linear 1s infinite;
+
+    }
+
+    @keyframes circle2first {
+        0%{
+            width: 0;
+            height: 0;
+            opacity: 0;
+
+        }
+
+        100%{
+            width:200px;
+            height:200px;
+            transform: rotate(360deg);
+            opacity: 1;
+        }
+
+    }
+
+    @keyframes circle2second {
+        0%{
+            width: 0;
+            height: 0;
+            opacity: 0;
+
+        }
+
+        100%{
+            width:150px;
+            height:150px;
+            opacity: 1;
+        }
+
+    }
+
+</style>
+<body>
+    <div>
+        <span class="circle1"></span>
+        <h1>Loading..</h1>
+        <span class="circle2"></span>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Swipe Button</title>
+</head>
+<style type="text/css">
+	body{
+		font-variant: small-caps;
+		background-color: #222;
+		height: 100vh;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	a{
+		text-decoration: none;
+		color: #fff;
+		font-size: 45px;
+		border: 5px solid #fff;
+		padding: 40px 80px;
+		position: relative;
+
+		overflow: hidden;
+
+	}
+
+	a::before{
+		content: "Thank You";
+		background-color: #555;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+
+
+		top: 0;
+		left: 0;
+
+		transform: translateY(100%);
+
+		transition: all 1s;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	a:hover::before{
+		background-color: red;
+		transform: translateY(0%);
+	}
+</style>
+<body>
+	<a href="#">Hover Me</a>
+</body>
+</html>
